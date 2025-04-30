@@ -1,0 +1,58 @@
+<style>
+  table { border-collapse: collapse; margin: 0 auto 40px; }
+  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
+  th { border-bottom: 2px solid #333; text-align: left; }
+</style>
+<table>
+    <thead>
+      <tr>
+        <th rowspan="2">Prompting Strategy</th>
+        <th colspan="2">GPT-4o</th>
+        <th colspan="2">o3-mini</th>
+        <th colspan="2">Gemini-1.5-Flash</th>
+        <th colspan="2">Llama3.1-405B</th>
+        <th colspan="2">Deepseek-R1-671B</th>
+      </tr>
+      <tr>
+        <th>Rots/Ep</th><th>Solve Rate</th>
+        <th>Rots/Ep</th><th>Solve Rate</th>
+        <th>Rots/Ep</th><th>Solve Rate</th>
+        <th>Rots/Ep</th><th>Solve Rate</th>
+        <th>Rots/Ep</th><th>Solve Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>M(B,P)<sub>modified</sub></strong></td>
+        <td><strong>5.46</strong></td><td><strong>84%</strong></td>
+        <td><strong>5.38</strong></td><td><strong>28%</strong></td>
+        <td><strong>5.48</strong></td><td><strong>31%</strong></td>
+        <td>5.41</td><td><strong>10%</strong></td>
+        <td>5.08</td><td><strong>16%</strong></td>
+      </tr>
+      <tr>
+        <td>M(B, P)</td>
+        <td>0.13</td><td>0%</td>
+        <td>0.17</td><td>0%</td>
+        <td>0.04</td><td>0%</td>
+        <td><strong>5.42</strong></td><td><strong>10%</strong></td>
+        <td><strong>5.26</strong></td><td><strong>16%</strong></td>
+      </tr>
+      <tr>
+        <td>M<sub>modified</sub></td>
+        <td>0.17</td><td>0%</td>
+        <td>0.17</td><td>0%</td>
+        <td>0.10</td><td>0%</td>
+        <td>0.02</td><td>0%</td>
+        <td>0.05</td><td>0%</td>
+      </tr>
+      <tr>
+        <td>M (Original Eureka)</td>
+        <td>0.12</td><td>0%</td>
+        <td>0.15</td><td>0%</td>
+        <td>0.05</td><td>0%</td>
+        <td>0.04</td><td>0%</td>
+        <td>0.02</td><td>0%</td>
+      </tr>
+    </tbody>
+  </table>

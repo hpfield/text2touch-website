@@ -1,0 +1,70 @@
+<style>
+  table { border-collapse: collapse; margin: 0 auto 40px; }
+  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
+  th { border-bottom: 2px solid #333; text-align: left; }
+</style>
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Approach</th>
+      <th colspan="2">Palm Up Z</th>
+      <th colspan="2">Palm Down Z</th>
+      <th colspan="2">Palm Up Y</th>
+      <th colspan="2">Palm Down Y</th>
+      <th colspan="2">Palm Up X</th>
+      <th colspan="2">Palm Down X</th>
+      <th colspan="2">Total Avg</th>
+    </tr>
+    <tr>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+      <th>Rot</th><th>TTT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Human-engineered Baseline</td>
+      <td>1.42</td><td>22.1</td>
+      <td>0.96</td><td>17.2</td>
+      <td><strong>1.04</strong></td><td>23.4</td>
+      <td>0.67</td><td>24.0</td>
+      <td>1.23</td><td>19.0</td>
+      <td>0.65</td><td>14.1</td>
+      <td>0.99</td><td>20.0</td>
+    </tr>
+    <tr>
+      <td>GPT-4o</td>
+      <td>2.34</td><td>26.5</td>
+      <td><strong>1.67</strong></td><td><strong>23.1</strong></td>
+      <td>1.00</td><td><strong>27.1</strong></td>
+      <td>0.46</td><td>16.9</td>
+      <td>0.92</td><td>14.9</td>
+      <td>0.73</td><td>15.6</td>
+      <td>1.18</td><td>20.7</td>
+    </tr>
+    <tr>
+      <td>Gemini-1.5-Flash</td>
+      <td>2.12</td><td>26.9</td>
+      <td>1.19</td><td>19.0</td>
+      <td>1.00</td><td>26.2</td>
+      <td>0.61</td><td>27.5</td>
+      <td><strong>1.47</strong></td><td>21.4</td>
+      <td><strong>1.31</strong></td><td><strong>21.5</strong></td>
+      <td>1.28</td><td>23.8</td>
+    </tr>
+    <tr>
+      <td>Deepseek-R1-671B</td>
+      <td><strong>2.45</strong></td><td><strong>27.6</strong></td>
+      <td>1.00</td><td><strong>23.1</strong></td>
+      <td>0.97</td><td>21.6</td>
+      <td><strong>1.78</strong></td><td><strong>27.7</strong></td>
+      <td>1.08</td><td><strong>30.0</strong></td>
+      <td>0.92</td><td>20.4</td>
+      <td><strong>1.37</strong></td><td><strong>25.1</strong></td>
+    </tr>
+  </tbody>
+</table>

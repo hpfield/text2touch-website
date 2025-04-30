@@ -1,0 +1,20 @@
+# Run Locally
+
+1. Open a terminal and go to the project folder:
+   cd ~/Documents/text2touch-site
+
+2. (First time only) Ensure you’re using Homebrew’s Ruby and have added it to your PATH:
+   brew install ruby
+   echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+
+3. (First time only) Install Jekyll and Bundler gems:
+   gem install jekyll bundler
+
+4. Install project dependencies:
+   bundle install
+
+5. Serve the site with live‑reload:
+   bundle exec jekyll serve --livereload
+
+6. Open http://localhost:4000 in your browser.

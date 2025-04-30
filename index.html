@@ -1,0 +1,161 @@
+---
+layout: default
+title: Home
+---
+
+<script>
+  window.BASEURL = "{{ site.baseurl }}";
+</script>
+<style>
+  /* center table titles and add top margin */
+  .container h3 {
+    text-align: center;
+    margin-top: 40px;
+  }
+  /* code‐block height */
+  #rewardFunctionDisplay pre {
+    height: 500px;      /* desired height */
+    overflow-y: auto;   /* enable scrolling when content exceeds */
+  }
+</style>
+
+<section id="overview" class="container">
+  <h2>Overview</h2>
+  <p><strong>Authors:</strong> Anonymous Author(s)</p>
+  <div class="project-video">
+    <h3>Project Video</h3>
+    <video id="video-project" controls>
+      <source src="{{ site.baseurl }}/assets/videos/Text2Touch.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="project-image">
+    <img src="{{ site.baseurl }}/assets/images/text2touchv3.png" alt="Text2Touch V3 overview">
+  </div>
+
+  <p><strong>Abstract:</strong> Large language models (LLMs) are begining to automate reward design for dexterous manipulation. However, no prior work has considered tactile sensing, which is known to be critical for human-like dexterity. We present Text2Touch, bringing LLM-crafted rewards to the challenging task of multi-axis in-hand object rotation with real-world vision based tactile sensing in palm-up and palm-down configurations. Our prompt engineering strategy scales to over 70 environment variables, and sim-to-real distillation enables successful policy transfer to a tactile-enabled fully actuated four-fingered dexterous robot hand. Text2Touch significantly outperforms a carefully tuned human-engineered baseline, demonstrating superior rotation speed and stability while relying on reward functions that are an order of magnitude shorter and simpler. These results illustrate how LLM-designed rewards can significantly reduce the time from concept to deployable dexterous tactile skills, supporting more rapid and scalable multimodal robot learning.</p>
+  <p>
+    <a href="https://arxiv.org/abs/yourpaperid" target="_blank">View on ArXiv (Coming soon)</a> |
+    <a href="https://github.com/yourusername/yourrepo" target="_blank">View Code (Coming soon)</a>
+  </p>
+</section>
+
+<section id="reward-functions" class="container">
+  <h2>Reward Functions</h2>
+  <p>Select an approach to view its best reward function code:</p>
+  <select id="llmSelector">
+    <option value="baseline">Baseline</option>
+    <option value="gpt4o">GPT-4o</option>
+    <option value="gemini1.5flash">Gemini-1.5-Flash</option>
+    <option value="deepseekr1-671b">Deepseek-R1-671B</option>
+    <option value="llama-3.1-405B">Llama 3.1‑405B</option>
+    <option value="o3-mini">O3‑Mini</option>
+  </select>
+  <div id="rewardFunctionDisplay">
+    <pre><code class="language-python" id="codeBlock">
+// Placeholder reward function code will appear here.
+    </code></pre>
+  </div>
+</section>
+
+<section id="policy-videos" class="container">
+  <h2>Real-World Policy Videos</h2>
+  <!-- Debug: show which URLs we’re loading -->
+  <!-- <pre id="videoDebug" style="background:#f4f4f4; padding:10px; border:1px solid #ddd;"></pre> -->
+
+  <p><strong>Available objects:</strong> apple, box, cream, dolphin, duck, lemon, mints, orange, peach, pepper</p>
+  <p><strong>Rotation axes:</strong> x, y, z | <strong>Hand orientations:</strong> Palm-up (up), Palm-down (down)</p>
+
+  <p>Select parameters to view policy videos side by side:</p>
+  <div class="dropdowns">
+    <label for="orientationSelector">Hand Orientation:</label>
+    <select id="orientationSelector">
+      <option value="up">Palm-up</option>
+      <option value="down">Palm-down</option>
+    </select>
+
+    <label for="objectSelector">Object:</label>
+    <select id="objectSelector">
+      <option value="apple">Apple</option>
+      <option value="box">Box</option>
+      <option value="cream">Cream</option>
+      <option value="dolphin">Dolphin</option>
+      <option value="duck">Duck</option>
+      <option value="lemon">Lemon</option>
+      <option value="mints">Mints</option>
+      <option value="orange">Orange</option>
+      <option value="peach">Peach</option>
+      <option value="pepper">Pepper</option>
+    </select>
+
+    <label for="axisSelector">Rotation Axis:</label>
+    <select id="axisSelector">
+      <option value="x">X-Axis</option>
+      <option value="y">Y-Axis</option>
+      <option value="z">Z-Axis</option>
+    </select>
+  </div>
+
+  <div id="videoDisplay" class="video-grid">
+    <div class="video-container">
+      <h3>Baseline</h3>
+      <!-- <p class="video-url" id="url-baseline"></p> -->
+      <video id="video-baseline" controls autoplay muted>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-container">
+      <h3>GPT-4o</h3>
+      <!-- <p class="video-url" id="url-gpt4o"></p> -->
+      <video id="video-gpt4o" controls autoplay muted>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-container">
+      <h3>Gemini-1.5-Flash</h3>
+      <!-- <p class="video-url" id="url-gemini"></p> -->
+      <video id="video-gemini" controls autoplay muted>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-container">
+      <h3>Deepseek-R1-671B</h3>
+      <!-- <p class="video-url" id="url-deepseek"></p> -->
+      <video id="video-deepseek" controls autoplay muted>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </div>
+</section>
+
+<section id="results" class="container">
+  <h2>Key Tables & Results</h2>
+
+  <h3>Prompt Strategies Comparison</h3>
+  <div class="table-responsive">
+    {% include_relative assets/tables/prompt_strategies.html %}
+  </div>
+
+  <h3>LLM Statistics</h3>
+  <div class="table-responsive">
+    {% include_relative assets/tables/LLM-stats.html %}
+  </div>
+
+  <!-- distilled observation models -->
+  <h3>Distilled Observation Models</h3>
+  <div class="table-responsive">
+    {% include_relative assets/tables/distilled.html %}
+  </div>
+
+  <!-- real-world full rotations & TTT -->
+  <h3>Real-World Policy Results</h3>
+  <div class="table-responsive">
+    {% include_relative assets/tables/real-world.html %}
+  </div>
+</section>
