@@ -1,2 +1,5 @@
 ---
 BUNDLE_PATH: "vendor/bundle"
+BUNDLE_BUILD__EVENTMACHINE: "--with-ssl-dir=/home/harry/miniconda3/envs/website --with-openssl-dir=/home/harry/miniconda3/envs/website"
+BUNDLE_BUILD__FFI: "--with-ffi-dir=/home/harry/miniconda3/envs/website"
+BUNDLE_BUILD__JSON: "--with-opt-dir=/home/harry/miniconda3/envs/website"

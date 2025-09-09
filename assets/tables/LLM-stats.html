@@ -1,87 +1,164 @@
+
 <style>
-  table { border-collapse: collapse; margin: 0 auto 40px; }
-  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
-  th { border-bottom: 2px solid #333; text-align: left; }
+  :root{
+    --rule:#222;         /* booktabs-like dark rules */
+    --subrule:#666;      /* cmidrule-ish */
+    --text:#111;
+    --bg:#fff;
+  }
+  body{background:var(--bg);color:var(--text);}
+  .paper-table{
+    font-family: Cambria, "Times New Roman", Times, serif;
+    font-size:12px;                 /* ≈ \scriptsize */
+    line-height:1.35;
+    margin:1.25rem auto;
+    max-width:1100px;
+  }
+  .table-wrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid #ddd;
+    border-radius:6px;
+    padding:.25rem .5rem;
+    background:#fff;
+  }
+  table.booktabs{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:auto;
+    white-space:nowrap;
+  }
+  /* booktabs rules */
+  .booktabs thead tr:first-child th{ border-bottom:2px solid var(--rule); }  /* \toprule */
+  .booktabs .midrule > th,
+  .booktabs .midrule > td{ border-top:1px solid var(--rule); }               /* \midrule */
+  .booktabs tbody tr:last-child td{ border-top:2px solid var(--rule); }      /* \bottomrule */
+
+  /* group underlines (cmidrule-ish) */
+  .group-head{ border-bottom:1px solid var(--subrule); }
+
+  th, td{
+    padding:.35rem .5rem;
+    text-align:right;
+    vertical-align:middle;
+  }
+  th[rowspan]{ text-align:center; }
+  th:first-child, td:first-child{ text-align:left; }
+
+  .tight td, .tight th{ padding-top:.28rem; padding-bottom:.28rem; }
+  .strong{ font-weight:700; }
+  .u{ text-decoration: underline; }
+
+  caption{
+    caption-side:bottom;
+    text-align:left;
+    font-size:12px;
+    line-height:1.35;
+    margin-top:.4rem;
+  }
+  /* Optional: small figure-like spacing nudge for [b] placement vibe */
+  .above-gap{ margin-top:.25rem; }
 </style>
-<table>
-  <thead>
-    <tr>
-      <th rowspan="3">LLM</th>
-      <th colspan="6">Performance</th>
-      <th colspan="6">Code Quality</th>
-    </tr>
-    <tr>
-      <th colspan="2">Rots/Ep ↑</th>
-      <th colspan="2">EpLen(s) ↑</th>
-      <th>Corr</th>
-      <th>GR ↑</th>
-      <th colspan="2">Vars ↓</th>
-      <th colspan="2">LoC ↓</th>
-      <th colspan="2">HV ↓</th>
-    </tr>
-    <tr>
-      <th>Best (π*)</th><th>Avg</th>
-      <th>π*</th><th>Avg</th>
-      <th>π*</th><th>Avg</th>
-      <th>π*</th><th>Avg</th>
-      <th>π*</th><th>Avg</th>
-      <th>π*</th><th>Avg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Baseline</td>
-      <td>4.92</td><td>4.73</td>
-      <td><strong>27.2</strong></td><td><strong>26.8</strong></td>
-      <td>1</td><td>-</td>
-      <td>66</td><td>-</td>
-      <td>111</td><td>-</td>
-      <td>2576</td><td>-</td>
-    </tr>
-    <tr>
-      <td>Gemini‑1.5-Flash</td>
-      <td><strong>5.48</strong></td><td><strong>5.29</td>
-      <td>24.1</td><td>23.8</td>
-      <td>0.40</td><td>0.76</td>
-      <td>7</td><td>6.3</td>
-      <td>24</td><td>22.6</td>
-      <td>370</td><td>301</td>
-    </tr>
-    <tr>
-      <td>Llama3.1-405B</td>
-      <td>5.41</td><td>5.28</td>
-      <td>23.7</td><td>23.2</td>
-      <td>0.35</td><td>0.45</td>
-      <td>5</td><td>6.6</td>
-      <td>31</td><td>22.5</td>
-      <td>211</td><td>233</td>
-    </tr>
-    <tr>
-      <td>GPT-4o</td>
-      <td>5.46</td><td>5.20</td>
-      <td><u>24.4</u></td><td>23.4</td>
-      <td>0.30</td><td>0.63</td>
-      <td>8</td><td>8.1</td>
-      <td>35</td><td>26.9</td>
-      <td>317</td><td>300</td>
-    </tr>
-    <tr>
-      <td>o3‑mini</td>
-      <td>5.38</td><td>5.26</td>
-      <td>23.9</td><td>23.1</td>
-      <td>0.47</td><td>0.92</td>
-      <td>6</td><td>6.6</td>
-      <td>27</td><td>30.1</td>
-      <td>281</td><td>302</td>
-    </tr>
-    <tr>
-      <td>DeepseekR1-671B</td>
-      <td>5.26</td><td>5.12</td>
-      <td>22.9</td><td>22.4</td>
-      <td>0.42</td><td>0.93</td>
-      <td>12</td><td>11.9</td>
-      <td>43</td><td>45.3</td>
-      <td>994</td><td>699</td>
-    </tr>
-  </tbody>
-</table>
+</head>
+<body>
+
+<div class="paper-table above-gap" id="tab-llm-extensive-s1">
+  <div class="table-wrap">
+    <table class="booktabs tight" aria-describedby="llm-extensive-caption">
+      <thead>
+        <tr>
+          <th rowspan="3"><strong>LLM</strong></th>
+
+          <th class="group-head" colspan="6"><strong>Performance</strong></th>
+          <th class="group-head" colspan="6"><strong>Code Quality</strong></th>
+        </tr>
+        <tr>
+          <th colspan="2"><strong>Rots/Ep &#8593;</strong></th>
+          <th colspan="2"><strong>EpLen(s) &#8593;</strong></th>
+          <th><strong>Corr</strong></th>
+          <th><strong>GR &#8593;</strong></th>
+
+          <th colspan="2"><strong>Vars &#8595;</strong></th>
+          <th colspan="2"><strong>LoC &#8595;</strong></th>
+          <th colspan="2"><strong>HV &#8595;</strong></th>
+        </tr>
+        <tr class="midrule">
+          <th>Best (&pi;<sup>*</sup>)</th><th>Avg</th>
+          <th>&pi;<sup>*</sup>)</th><th>Avg</th>
+          <th>&pi;<sup>*</sup>)</th><th>Avg</th>
+          <th>&pi;<sup>*</sup>)</th><th>Avg</th>
+          <th>&pi;<sup>*</sup>)</th><th>Avg</th>
+          <th>&pi;<sup>*</sup>)</th><th>Avg</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Baseline</td>
+          <td>4.92</td><td>4.73</td>
+          <td class="strong">27.2</td><td class="strong">26.8</td>
+          <td>1</td><td>-</td>
+          <td>66</td><td>-</td>
+          <td>111</td><td>-</td>
+          <td>2576</td><td>-</td>
+        </tr>
+
+        <tr class="midrule">
+          <td>Gemini-1.5-Flash</td>
+          <td class="strong">5.48</td><td class="strong">5.29</td>
+          <td>24.1</td><td>23.8</td>
+          <td>0.40</td><td>0.76</td>
+          <td>7</td><td>6.3</td>
+          <td>24</td><td>22.6</td>
+          <td>370</td><td>301</td>
+        </tr>
+
+        <tr>
+          <td>Llama3.1-405B</td>
+          <td>5.41</td><td>5.28</td>
+          <td>23.7</td><td>23.2</td>
+          <td>0.35</td><td>0.45</td>
+          <td>5</td><td>6.6</td>
+          <td>31</td><td>22.5</td>
+          <td>211</td><td>233</td>
+        </tr>
+
+        <tr>
+          <td>GPT-4o</td>
+          <td>5.46</td><td>5.20</td>
+          <td><span class="u">24.4</span></td><td>23.4</td>
+          <td>0.30</td><td>0.63</td>
+          <td>8</td><td>8.1</td>
+          <td>35</td><td>26.9</td>
+          <td>317</td><td>300</td>
+        </tr>
+
+        <tr>
+          <td>o3-mini</td>
+          <td>5.38</td><td>5.26</td>
+          <td>23.9</td><td>23.1</td>
+          <td>0.47</td><td>0.92</td>
+          <td>6</td><td>6.6</td>
+          <td>27</td><td>30.1</td>
+          <td>281</td><td>302</td>
+        </tr>
+
+        <tr>
+          <td>DeepseekR1-671B</td>
+          <td>5.26</td><td>5.12</td>
+          <td>22.9</td><td>22.4</td>
+          <td>0.42</td><td>0.93</td>
+          <td>12</td><td>11.9</td>
+          <td>43</td><td>45.3</td>
+          <td>994</td><td>699</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <caption id="llm-extensive-caption">
+    Comparison of LLM-generated and human-designed reward functions when used to train models with privileged information in simulation.
+    <strong>Performance:</strong> Rotations per episode (Rots/Ep), episode lengths (EpLen(s)), reward correlation with baseline (Corr) and generation rate of runnable code (GR) of the model with the highest Rots/Ep (&pi;<sup>*</sup>) and the average over that reward function&#8217;s repeated training runs.
+    <strong>Code Quality:</strong> For the reward function producing &pi;<sup>*</sup> and the average over all trained reward functions, we record the variables used from the environment (Vars), the lines of code in the function body (LoC) and the Halstead Volume (HV).
+  </caption>
+</div>

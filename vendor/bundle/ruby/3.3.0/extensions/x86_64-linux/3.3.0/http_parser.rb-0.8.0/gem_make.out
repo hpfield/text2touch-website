@@ -3,10 +3,10 @@ current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3
 creating Makefile
 
 current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20250909-12235-mmk45z sitelibdir\=./.gem.20250909-12235-mmk45z clean
+make DESTDIR\= sitearchdir\=./.gem.20250909-13238-87oe5w sitelibdir\=./.gem.20250909-13238-87oe5w clean
 
 current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20250909-12235-mmk45z sitelibdir\=./.gem.20250909-12235-mmk45z
+make DESTDIR\= sitearchdir\=./.gem.20250909-13238-87oe5w sitelibdir\=./.gem.20250909-13238-87oe5w
 compiling ruby_http_parser.c
 /bin/sh: 1: x86_64-conda-linux-gnu-cc: not found
 make: *** [Makefile:248: ruby_http_parser.o] Error 127

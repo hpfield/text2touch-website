@@ -1,5 +1,5 @@
 current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/gems/json-2.11.3/ext/json/ext/generator
-/home/harry/miniconda3/envs/website/bin/ruby extconf.rb
+/home/harry/miniconda3/envs/website/bin/ruby extconf.rb --with-opt-dir\=/home/harry/miniconda3/envs/website
 checking for whether -std=c99 is accepted as CFLAGS... *** extconf.rb failed ***
 Could not create Makefile due to some reason, probably lack of necessary
 libraries and/or headers.  Check the mkmf.log file for more details.  You may
@@ -7,7 +7,6 @@ need configuration options.
 
 Provided configuration options:
 	--with-opt-dir
-	--without-opt-dir
 	--with-opt-include=${opt-dir}/include
 	--without-opt-include
 	--with-opt-lib=${opt-dir}/lib

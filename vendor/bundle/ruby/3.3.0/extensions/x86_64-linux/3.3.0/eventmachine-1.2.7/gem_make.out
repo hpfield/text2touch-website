@@ -1,6 +1,8 @@
 current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext
-/home/harry/miniconda3/envs/website/bin/ruby extconf.rb
-checking for pkg-config for openssl... not found
+/home/harry/miniconda3/envs/website/bin/ruby extconf.rb --with-ssl-dir\=/home/harry/miniconda3/envs/website --with-openssl-dir\=/home/harry/miniconda3/envs/website
+-----
+Using OpenSSL in path /home/harry/miniconda3/envs/website
+-----
 checking for -lcrypto... *** extconf.rb failed ***
 Could not create Makefile due to some reason, probably lack of necessary
 libraries and/or headers.  Check the mkmf.log file for more details.  You may
@@ -19,20 +21,10 @@ Provided configuration options:
 	--curdir
 	--ruby=/home/harry/miniconda3/envs/website/bin/$(RUBY_BASE_NAME)
 	--with-ssl-dir
-	--without-ssl-dir
 	--with-ssl-include=${ssl-dir}/include
 	--without-ssl-include
 	--with-ssl-lib=${ssl-dir}/lib
 	--without-ssl-lib
-	--with-openssl-dir
-	--with-openssl-include=${openssl-dir}/include
-	--without-openssl-include
-	--with-openssl-lib=${openssl-dir}/lib
-	--without-openssl-lib
-	--with-openssl-config
-	--without-openssl-config
-	--with-pkg-config
-	--without-pkg-config
 	--with-crypto-dir
 	--without-crypto-dir
 	--with-crypto-include=${crypto-dir}/include
@@ -59,7 +51,7 @@ You have to install development tools first.
 	from extconf.rb:8:in `block in check_libs'
 	from extconf.rb:8:in `all?'
 	from extconf.rb:8:in `check_libs'
-	from extconf.rb:95:in `<main>'
+	from extconf.rb:91:in `<main>'
 
 To see why this extension failed to compile, please check the mkmf.log which can be found here:
 
