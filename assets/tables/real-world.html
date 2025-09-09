@@ -1,70 +1,128 @@
 <style>
-  table { border-collapse: collapse; margin: 0 auto 40px; }
-  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
-  th { border-bottom: 2px solid #333; text-align: left; }
+  :root {
+    --rule:#222;
+    --subrule:#666;
+    --text:#111;
+    --bg:#fff;
+  }
+  .paper-table {
+    font-family: Cambria, "Times New Roman", Times, serif;
+    font-size: 12px;   /* ≈ \scriptsize */
+    line-height: 1.35;
+    margin: 1rem auto;
+    max-width: 1100px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: .25rem .5rem;
+    background: #fff;
+  }
+  table.booktabs {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    white-space: nowrap;
+  }
+  /* booktabs rules */
+  .booktabs thead tr:first-child th { border-bottom: 2px solid var(--rule); }
+  .booktabs .midrule > th,
+  .booktabs .midrule > td { border-top: 1px solid var(--rule); }
+  .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
+
+  /* mimic the vertical rule before Total Avg */
+  .vr { border-left: 1px solid var(--subrule); }
+
+  th, td {
+    padding: .3rem .4rem;
+    text-align: right;
+    vertical-align: middle;
+  }
+  th:first-child, td:first-child { text-align: left; }
+
+  .strong { font-weight: 700; }
+
+  caption {
+    caption-side: bottom;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: .35rem;
+  }
 </style>
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Approach</th>
-      <th colspan="2">Palm Up Z</th>
-      <th colspan="2">Palm Down Z</th>
-      <th colspan="2">Palm Up Y</th>
-      <th colspan="2">Palm Down Y</th>
-      <th colspan="2">Palm Up X</th>
-      <th colspan="2">Palm Down X</th>
-      <th colspan="2">Total Avg</th>
-    </tr>
-    <tr>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-      <th>Rot</th><th>TTT</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Human-engineered Baseline</td>
-      <td>1.42</td><td>22.1</td>
-      <td>0.96</td><td>17.2</td>
-      <td><strong>1.04</strong></td><td>23.4</td>
-      <td>0.67</td><td>24.0</td>
-      <td>1.23</td><td>19.0</td>
-      <td>0.65</td><td>14.1</td>
-      <td>0.99</td><td>20.0</td>
-    </tr>
-    <tr>
-      <td>GPT-4o</td>
-      <td>2.34</td><td>26.5</td>
-      <td><strong>1.67</strong></td><td><strong>23.1</strong></td>
-      <td>1.00</td><td><strong>27.1</strong></td>
-      <td>0.46</td><td>16.9</td>
-      <td>0.92</td><td>14.9</td>
-      <td>0.73</td><td>15.6</td>
-      <td>1.18</td><td>20.7</td>
-    </tr>
-    <tr>
-      <td>Gemini-1.5-Flash</td>
-      <td>2.12</td><td>26.9</td>
-      <td>1.19</td><td>19.0</td>
-      <td>1.00</td><td>26.2</td>
-      <td>0.61</td><td>27.5</td>
-      <td><strong>1.47</strong></td><td>21.4</td>
-      <td><strong>1.31</strong></td><td><strong>21.5</strong></td>
-      <td>1.28</td><td>23.8</td>
-    </tr>
-    <tr>
-      <td>Deepseek-R1-671B</td>
-      <td><strong>2.45</strong></td><td><strong>27.6</strong></td>
-      <td>1.00</td><td><strong>23.1</strong></td>
-      <td>0.97</td><td>21.6</td>
-      <td><strong>1.78</strong></td><td><strong>27.7</strong></td>
-      <td>1.08</td><td><strong>30.0</strong></td>
-      <td>0.92</td><td>20.4</td>
-      <td><strong>1.37</strong></td><td><strong>25.1</strong></td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="paper-table" id="tab-avg-orientation-axis">
+  <div class="table-wrap">
+    <table class="booktabs" aria-describedby="avg-orientation-caption">
+      <thead>
+        <tr>
+          <th rowspan="2"><strong>Approach</strong></th>
+          <th colspan="2"><strong>Palm Up Z</strong></th>
+          <th colspan="2"><strong>Palm Down Z</strong></th>
+          <th colspan="2"><strong>Palm Up Y</strong></th>
+          <th colspan="2"><strong>Palm Down Y</strong></th>
+          <th colspan="2"><strong>Palm Up X</strong></th>
+          <th colspan="2"><strong>Palm Down X</strong></th>
+          <th class="vr" colspan="2"><strong>Total Avg</strong></th>
+        </tr>
+        <tr class="midrule">
+          <th>Rot</th><th>TTT</th>
+          <th>Rot</th><th>TTT</th>
+          <th>Rot</th><th>TTT</th>
+          <th>Rot</th><th>TTT</th>
+          <th>Rot</th><th>TTT</th>
+          <th>Rot</th><th>TTT</th>
+          <th class="vr">Rot</th><th>TTT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Human-engineered Baseline</td>
+          <td>1.42</td><td>22.1</td>
+          <td>0.96</td><td>17.2</td>
+          <td class="strong">1.04</td><td>23.4</td>
+          <td>0.67</td><td>24.0</td>
+          <td>1.23</td><td>19.0</td>
+          <td>0.65</td><td>14.1</td>
+          <td class="vr">0.99</td><td>20.0</td>
+        </tr>
+        <tr>
+          <td>GPT-4o</td>
+          <td>2.34</td><td>26.5</td>
+          <td class="strong">1.67</td><td class="strong">23.1</td>
+          <td>1.00</td><td class="strong">27.1</td>
+          <td>0.46</td><td>16.9</td>
+          <td>0.92</td><td>14.9</td>
+          <td>0.73</td><td>15.6</td>
+          <td class="vr">1.18</td><td>20.7</td>
+        </tr>
+        <tr>
+          <td>Gemini-1.5-Flash</td>
+          <td>2.12</td><td>26.9</td>
+          <td>1.19</td><td>19.0</td>
+          <td>1.00</td><td>26.2</td>
+          <td>0.61</td><td>27.5</td>
+          <td class="strong">1.47</td><td>21.4</td>
+          <td class="strong">1.31</td><td class="strong">21.5</td>
+          <td class="vr">1.28</td><td>23.8</td>
+        </tr>
+        <tr>
+          <td>Deepseek-R1-671B</td>
+          <td class="strong">2.45</td><td class="strong">27.6</td>
+          <td>1.00</td><td class="strong">23.1</td>
+          <td>0.97</td><td>21.6</td>
+          <td class="strong">1.78</td><td class="strong">27.7</td>
+          <td>1.08</td><td class="strong">30.0</td>
+          <td>0.92</td><td>20.4</td>
+          <td class="vr strong">1.37</td><td class="strong">25.1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <caption id="avg-orientation-caption">
+    Real-World average full rotations (Rot) and Time To Terminate (TTT, maximum 30s) in seconds across all objects, per approach and hand orientation.
+  </caption>
+</div>

@@ -1,50 +1,102 @@
 <style>
-  table { border-collapse: collapse; margin: 0 auto 40px; }
-  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
-  th { border-bottom: 2px solid #333; text-align: left; }
+  :root {
+    --rule: #222;
+    --subrule: #666;
+    --text: #111;
+    --bg: #fff;
+  }
+  .paper-table {
+    font-family: Cambria, "Times New Roman", Times, serif;
+    font-size: 12px;   /* ≈ \scriptsize */
+    line-height: 1.35;
+    margin: 0.75rem auto;
+    max-width: 650px;  /* ≈ 0.6\textwidth */
+  }
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: .25rem .5rem;
+    background: #fff;
+  }
+  table.booktabs {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    white-space: nowrap;
+  }
+  .booktabs thead tr:first-child th { border-bottom: 2px solid var(--rule); }
+  .booktabs .midrule > th,
+  .booktabs .midrule > td { border-top: 1px solid var(--rule); }
+  .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
+
+  th, td {
+    padding: .35rem .5rem;
+    text-align: right;
+    vertical-align: middle;
+  }
+  th:first-child, td:first-child { text-align: left; }
+  .strong { font-weight: 700; }
+  caption {
+    caption-side: bottom;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: .35rem;
+  }
 </style>
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">LLM</th>
-      <th colspan="2">OOD Mass</th>
-      <th colspan="2">OOD Shape</th>
-    </tr>
-    <tr>
-      <th>Rots/Ep ↑</th><th>EpLen(s) ↑</th>
-      <th>Rots/Ep ↑</th><th>EpLen(s) ↑</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Baseline</td>
-      <td>2.94</td><td><strong>23.0</strong></td>
-      <td>2.44</td><td><strong>25.1</strong></td>
-    </tr>
-    <tr>
-      <td>Gemini‑1.5-Flash</td>
-      <td><strong>3.38</strong></td><td>19.8</td>
-      <td><strong>2.68</strong></td><td>21.3</td>
-    </tr>
-    <tr>
-      <td>GPT-4o</td>
-      <td>3.35</td><td>20.7</td>
-      <td>2.62</td><td>22.5</td>
-    </tr>
-    <tr>
-      <td>o3‑mini</td>
-      <td>3.25</td><td>19.2</td>
-      <td>2.52</td><td>21.3</td>
-    </tr>
-    <tr>
-      <td>Llama3.1-405B</td>
-      <td>3.02</td><td>18.1</td>
-      <td>2.50</td><td>20.0</td>
-    </tr>
-    <tr>
-      <td>Deepseek-R1-671B</td>
-      <td>3.32</td><td>22.7</td>
-      <td>2.47</td><td>23.4</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="paper-table" id="tab-llm-s2">
+  <div class="table-wrap">
+    <table class="booktabs" aria-describedby="llm-s2-caption">
+      <thead>
+        <tr>
+          <th rowspan="2"><strong>LLM</strong></th>
+          <th colspan="2"><strong>OOD Mass</strong></th>
+          <th colspan="2"><strong>OOD Shape</strong></th>
+        </tr>
+        <tr class="midrule">
+          <th>Rots/Ep &#8593;</th><th>EpLen(s) &#8593;</th>
+          <th>Rots/Ep &#8593;</th><th>EpLen(s) &#8593;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Baseline</td>
+          <td>2.94</td><td class="strong">23.0</td>
+          <td>2.44</td><td class="strong">25.1</td>
+        </tr>
+        <tr class="midrule">
+          <td>Gemini-1.5-Flash</td>
+          <td class="strong">3.38</td><td>19.8</td>
+          <td class="strong">2.68</td><td>21.3</td>
+        </tr>
+        <tr>
+          <td>GPT-4o</td>
+          <td>3.35</td><td>20.7</td>
+          <td>2.62</td><td>22.5</td>
+        </tr>
+        <tr>
+          <td>o3-mini</td>
+          <td>3.25</td><td>19.2</td>
+          <td>2.52</td><td>21.3</td>
+        </tr>
+        <tr>
+          <td>Llama3.1-405B</td>
+          <td>3.02</td><td>18.1</td>
+          <td>2.50</td><td>20.0</td>
+        </tr>
+        <tr>
+          <td>Deepseek-R1-671B</td>
+          <td>3.32</td><td>22.7</td>
+          <td>2.47</td><td>23.4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <caption id="llm-s2-caption">
+    Tactile and proprioceptive observation models distilled from privileged agents (&pi;<sup>*</sup> in Table&nbsp;1). We report on average rotation achieved per episode (Rots/Ep) and average episode length (EpLen, max 30) for arbitrary rotation axis and hand direction.
+  </caption>
+</div>
