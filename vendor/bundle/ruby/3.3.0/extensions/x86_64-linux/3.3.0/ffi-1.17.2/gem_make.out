@@ -1,0 +1,68 @@
+current directory: /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/gems/ffi-1.17.2/ext/ffi_c
+/home/harry/miniconda3/envs/website/bin/ruby extconf.rb
+checking for pkg-config for libffi... not found
+checking for ffi.h... *** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include=${opt-dir}/include
+	--without-opt-include
+	--with-opt-lib=${opt-dir}/lib
+	--without-opt-lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/home/harry/miniconda3/envs/website/bin/$(RUBY_BASE_NAME)
+	--with-ffi_c-dir
+	--without-ffi_c-dir
+	--with-ffi_c-include=${ffi_c-dir}/include
+	--without-ffi_c-include
+	--with-ffi_c-lib=${ffi_c-dir}/lib
+	--without-ffi_c-lib
+	--enable-debug
+	--disable-debug
+	--enable-system-libffi
+	--disable-system-libffi
+	--with-libffi-dir
+	--with-libffi-include=${libffi-dir}/include
+	--without-libffi-include
+	--with-libffi-lib=${libffi-dir}/lib
+	--without-libffi-lib
+	--with-libffi-config
+	--without-libffi-config
+	--with-pkg-config
+	--without-pkg-config
+	--with-ffi-dir
+	--without-ffi-dir
+	--with-ffi-include=${ffi-dir}/include
+	--without-ffi-include
+	--with-ffi-lib=${ffi-dir}/lib
+	--without-ffi-lib
+/home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:480:in `try_do': The compiler failed to generate an executable file. (RuntimeError)
+You have to install development tools first.
+
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:606:in `block in try_compile'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:555:in `with_werror'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:606:in `try_compile'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:1151:in `block in have_header'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:983:in `block in checking_for'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:344:in `block (2 levels) in postpone'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:314:in `open'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:344:in `block in postpone'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:314:in `open'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:340:in `postpone'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:982:in `checking_for'
+	from /home/harry/miniconda3/envs/website/lib/ruby/3.3.0/mkmf.rb:1150:in `have_header'
+	from extconf.rb:10:in `system_libffi_usable?'
+	from extconf.rb:46:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/harry/Documents/text2touch-website/vendor/bundle/ruby/3.3.0/extensions/x86_64-linux/3.3.0/ffi-1.17.2/mkmf.log
+
+extconf failed, exit code 1

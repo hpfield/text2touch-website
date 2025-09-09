@@ -1,0 +1,18 @@
+pkg_config: checking for pkg-config for libffi... -------------------- not found
+
+PKG_CONFIG_PATH = /home/harry/miniconda3/envs/website/lib/pkgconfig
+package configuration for libffi is not found
+--------------------
+
+LD_LIBRARY_PATH=.:/home/harry/miniconda3/envs/website/lib:/usr/local/cuda-12.8/lib64:/usr/local/cuda/lib64:/home/harry/rclpy_ws/install/rclpy/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.8/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib64 "x86_64-conda-linux-gnu-cc -o conftest -I/home/harry/miniconda3/envs/website/include/ruby-3.3.0/x86_64-linux -I/home/harry/miniconda3/envs/website/include/ruby-3.3.0/ruby/backward -I/home/harry/miniconda3/envs/website/include/ruby-3.3.0 -I. -I/home/harry/miniconda3/envs/website/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /home/harry/miniconda3/envs/website/include   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/harry/miniconda3/envs/website/include -fdebug-prefix-map=/home/conda/feedstock_root/build_artifacts/ruby_1730829581203/work=/usr/local/src/conda/ruby-3.3.6 -fdebug-prefix-map=/home/harry/miniconda3/envs/website=/usr/local/src/conda-prefix -fPIC conftest.c  -L. -L/home/harry/miniconda3/envs/website/lib -Wl,-rpath,/home/harry/miniconda3/envs/website/lib -L/home/harry/miniconda3/envs/website/lib -Wl,-rpath,/home/harry/miniconda3/envs/website/lib -L. -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/harry/miniconda3/envs/website/lib -Wl,-rpath-link,/home/harry/miniconda3/envs/website/lib -L/home/harry/miniconda3/envs/website/lib -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm -lpthread  -lc"
+sh: 1: x86_64-conda-linux-gnu-cc: not found
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
