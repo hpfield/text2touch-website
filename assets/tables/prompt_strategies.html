@@ -1,95 +1,146 @@
 <style>
-  table { 
-    border-collapse: collapse; 
-    margin: 0 auto 40px; 
+  :root {
+    --rule: #222;          /* booktabs-like dark rules */
+    --subrule: #666;       /* cmidrule-ish */
+    --text: #111;
+    --bg: #fff;
+  }
+  body { background: var(--bg); color: var(--text); }
+  .paper-table {
+    font-family: Cambria, "Times New Roman", Times, serif;
+    font-size: 12px;                /* ≈ \scriptsize */
+    line-height: 1.35;
+    margin: 1.5rem auto;
+    max-width: 1100px;
+  }
+  .table-wrap {
+    overflow-x: auto;               /* like \resizebox to fit width */
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: .25rem .5rem;
+    background: #fff;
+  }
+  table.booktabs {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    white-space: nowrap;            /* keep compact columns */
   }
-  th, td { 
-    padding: 8px; 
-    border-bottom: 1px solid #ddd; 
-    text-align: center;
+
+  /* booktabs-inspired rules */
+  .booktabs thead tr:first-child th {
+    border-bottom: 2px solid var(--rule); /* \toprule */
   }
-  th { 
-    border-bottom: 2px solid #333;
+  .booktabs .midrule > th,
+  .booktabs .midrule > td {
+    border-top: 1px solid var(--rule);    /* \midrule */
   }
+  .booktabs tfoot tr:last-child td,
+  .booktabs tbody tr:last-child td {
+    border-top: 2px solid var(--rule);    /* \bottomrule */
+  }
+
+  /* cmidrule-ish: underline model-group headers only */
+  .booktabs .group-head {
+    border-bottom: 1px solid var(--subrule);
+  }
+
+  th, td {
+    padding: .35rem .5rem;                 /* \arraystretch tuned */
+    text-align: right;
+    vertical-align: middle;
+  }
+  th[rowspan] { text-align: center; }
+  th:first-child, td:first-child { text-align: left; }
+
+  /* Emphasis for bold numbers (matches \textbf) */
+  .strong { font-weight: 700; }
+
+  caption {
+    caption-side: bottom;                  /* like \caption below table */
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: .35rem;
+  }
+
+  /* Optional small spacing tweaks to mimic LaTeX tightness */
+  .tight td, .tight th { padding-top: .28rem; padding-bottom: .28rem; }
 </style>
+</head>
+<body>
 
-<table>
-  <thead>
-    <tr>
-      <th rowspan="3">Prompting Strategy</th>
-      <th colspan="3">GPT-4o</th>
-      <th colspan="3">o3-mini</th>
-      <th colspan="3">Gemini-1.5-Flash</th>
-      <th colspan="3">Llama3.1-405B</th>
-      <th colspan="3">Deepseek-R1-671B</th>
-    </tr>
-    <tr>
-      <th colspan="2">Rots/Ep</th>
-      <th>Solve</th>
-      <th colspan="2">Rots/Ep</th>
-      <th>Solve</th>
-      <th colspan="2">Rots/Ep</th>
-      <th>Solve</th>
-      <th colspan="2">Rots/Ep</th>
-      <th>Solve</th>
-      <th colspan="2">Rots/Ep</th>
-      <th>Solve</th>
-    </tr>
-    <tr>
-      <th>Best</th>
-      <th>Avg</th>
-      <th>Rate</th>
-      <th>Best</th>
-      <th>Avg</th>
-      <th>Rate</th>
-      <th>Best</th>
-      <th>Avg</th>
-      <th>Rate</th>
-      <th>Best</th>
-      <th>Avg</th>
-      <th>Rate</th>
-      <th>Best</th>
-      <th>Avg</th>
-      <th>Rate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Bonus/Penalty+ Mod</strong></td>
-      <td><strong>5.46</strong></td><td>5.34</td><td><strong>84%</strong></td>
-      <td><strong>5.38</strong></td><td>5.26</td><td><strong>28%</strong></td>
-      <td><strong>5.48</strong></td><td>5.29</td><td><strong>31%</strong></td>
-      <td>5.41</td><td>5.28</td><td><strong>10%</strong></td>
-      <td>5.08</td><td>5.03</td><td><strong>16%</strong></td>
-    </tr>
-    <tr>
-      <td>Bonus/Penalty</td>
-      <td>0.10</td><td>0.09</td><td>0%</td>
-      <td>0.17</td><td>0.17</td><td>0%</td>
-      <td>0.04</td><td>0.02</td><td>0%</td>
-      <td><strong>5.42</strong></td><td>5.23</td><td><strong>10%</strong></td>
-      <td><strong>5.26</strong></td><td>5.12</td><td><strong>16%</strong></td>
-    </tr>
-    <tr>
-      <td>Mod template</td>
-      <td>0.17</td><td>0.16</td><td>0%</td>
-      <td>0.17</td><td>0.12</td><td>0%</td>
-      <td>0.10</td><td>0.09</td><td>0%</td>
-      <td>0.02</td><td>0.01</td><td>0%</td>
-      <td>0.16</td><td>0.16</td><td>0%</td>
-    </tr>
-    <tr>
-      <td>Original</td>
-      <td>0.17</td><td>0.15</td><td>0%</td>
-      <td>0.18</td><td>0.14</td><td>0%</td>
-      <td>0.17</td><td>0.17</td><td>0%</td>
-      <td>0.18</td><td>0.13</td><td>0%</td>
-      <td>0.15</td><td>0.13</td><td>0%</td>
-    </tr>
-  </tbody>
-</table>
+<div class="paper-table" id="tab-llm-performance">
+  <div class="table-wrap">
+    <table class="booktabs tight" aria-describedby="llm-perf-caption">
+      <thead>
+        <tr>
+          <th rowspan="3"> <strong>Prompting<br>Strategy</strong> </th>
 
-<p style="text-align:center; font-size:0.9em; margin-top: 10px;">
-  Highest 360&deg; rotations per episode (Rots/Ep) split into best, average and overall frequency of episodes with s&gt;1 (Solve Rate) across 5 LLMs and 4 prompting strategies.
-</p>
+          <th class="group-head" colspan="3"><strong>GPT-4o</strong></th>
+          <th class="group-head" colspan="3"><strong>o3-mini</strong></th>
+          <th class="group-head" colspan="3"><strong>Gemini-1.5-Flash</strong></th>
+          <th class="group-head" colspan="3"><strong>Llama3.1-405B</strong></th>
+          <th class="group-head" colspan="3"><strong>Deepseek-R1-671B</strong></th>
+        </tr>
+        <tr>
+          <th colspan="2">Rots/Ep</th><th>Solve</th>
+          <th colspan="2">Rots/Ep</th><th>Solve</th>
+          <th colspan="2">Rots/Ep</th><th>Solve</th>
+          <th colspan="2">Rots/Ep</th><th>Solve</th>
+          <th colspan="2">Rots/Ep</th><th>Solve</th>
+        </tr>
+        <tr class="midrule">
+          <th>Best</th><th>Avg</th><th>Rate</th>
+          <th>Best</th><th>Avg</th><th>Rate</th>
+          <th>Best</th><th>Avg</th><th>Rate</th>
+          <th>Best</th><th>Avg</th><th>Rate</th>
+          <th>Best</th><th>Avg</th><th>Rate</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Bonus/Penalty+ Mod</td>
+          <td class="strong">5.46</td><td>5.34</td><td class="strong">84%</td>
+          <td class="strong">5.38</td><td>5.26</td><td class="strong">28%</td>
+          <td class="strong">5.48</td><td>5.29</td><td class="strong">31%</td>
+          <td>5.41</td><td>5.28</td><td class="strong">10%</td>
+          <td>5.08</td><td>5.03</td><td class="strong">16%</td>
+        </tr>
+
+        <tr>
+          <td>Bonus/Penalty</td>
+          <td>0.10</td><td>0.09</td><td>0%</td>
+          <td>0.17</td><td>0.17</td><td>0%</td>
+          <td>0.04</td><td>0.02</td><td>0%</td>
+          <td class="strong">5.42</td><td>5.23</td><td class="strong">10%</td>
+          <td class="strong">5.26</td><td>5.12</td><td class="strong">16%</td>
+        </tr>
+
+        <tr>
+          <td>Mod template</td>
+          <td>0.17</td><td>0.16</td><td>0%</td>
+          <td>0.17</td><td>0.12</td><td>0%</td>
+          <td>0.10</td><td>0.09</td><td>0%</td>
+          <td>0.02</td><td>0.01</td><td>0%</td>
+          <td>0.16</td><td>0.16</td><td>0%</td>
+        </tr>
+
+        <tr>
+          <td>Original</td>
+          <td>0.17</td><td>0.15</td><td>0%</td>
+          <td>0.18</td><td>0.14</td><td>0%</td>
+          <td>0.17</td><td>0.17</td><td>0%</td>
+          <td>0.18</td><td>0.13</td><td>0%</td>
+          <td>0.15</td><td>0.13</td><td>0%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <caption id="llm-perf-caption">
+    Highest 360° rotations per episode (Rots/Ep) split into best, average and overall frequency of episodes with s &gt; 1 (Solve Rate) across 5 LLMs and 4 prompting strategies.
+  </caption>
+</div>
