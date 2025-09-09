@@ -147,7 +147,7 @@ body, h1, h2, h3, p, ul, li, table, th, td, pre, code, select, label {
 }
 .table-responsive th,
 .table-responsive td {
-  border: 1px solid #ccc;
+  border: none;
   padding: 1rem 1.5rem;
 }
 .table-responsive th[rowspan] {
