@@ -5,48 +5,65 @@ body, h1, h2, h3, p, ul, li, table, th, td, pre, code, select, label {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
   
-  /* Body styling */
-  body {
+/* Body styling */
+body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #fff;
-  }
+}
   
-  /* Container */
-  .container {
+/* Container */
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
-  }
+}
   
-  /* Header */
-  header {
+/* Header */
+header {
     background-color: #f8f8f8;
     padding: 1rem 0;
     border-bottom: 1px solid #eaeaea;
-  }
-  header .container {
+}
+header .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  header h1 {
+}
+header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-  }
-  header p {
+}
+header p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-  }
-  nav ul {
+}
+.paper-links {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+.paper-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.paper-links img {
+    height: 24px;
+    width: auto;
+}
+nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
-  }
-  nav a {
+}
+nav a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
