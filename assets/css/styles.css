@@ -57,7 +57,7 @@ header p {
     text-align: center;
 }
 .paper-links img {
-    height: 32px;
+  height: 40px; /* slightly bigger */
     width: auto;
     margin-bottom: 0.5rem;
 }
@@ -100,8 +100,10 @@ nav a {
   
   /* Reward function code box fixed height and scrollable */
   #rewardFunctionDisplay pre {
-    height: 500px;
-    overflow-y: auto;
+  height: 500px;
+  overflow-y: auto;
+  font-size: clamp(0.78rem, 1.9vw, 1rem); /* scale code font with viewport */
+  line-height: 1.4;
   }
   
   /* Dropdowns and controls */
@@ -121,6 +123,11 @@ nav a {
   width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+/* Center Overview and Authors */
+#overview, #overview h2, #overview p {
+  text-align: center;
 }
 
 /* Project Video */
@@ -167,27 +174,24 @@ nav a {
     margin: 2rem 0;
 }
 .table-responsive table {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    font-size: 14px;
-    table-layout: fixed;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: clamp(11px, 1.2vw, 14px);
+  table-layout: auto; /* allow columns to size to content */
 }
 .table-responsive th,
 .table-responsive td {
-    padding: 0.5rem;
-    text-align: left;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    line-height: 1.4;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border: none; /* remove heavy cell borders */
+  font-size: inherit;
+  line-height: 1.35;
+  vertical-align: middle;
 }
-.table-responsive th {
-    background-color: #f8f8f8;
-}
-.table-responsive th[colspan] {
-    border-bottom: 2px solid #000;
-}
+.table-responsive th { font-weight: 600; }
+.table-responsive th[colspan] { border-bottom: 1px solid rgba(0,0,0,0.12); }
 .table-responsive th[rowspan],
 .table-responsive td[rowspan] {
     vertical-align: middle;
@@ -204,24 +208,24 @@ nav a {
 .paper-table th,
 .paper-table td {
   font-family: Cambria, "Times New Roman", Times, serif;
-  font-size: 12px;
+  font-size: clamp(11px, 1.1vw, 13px); /* responsive */
   line-height: 1.35;
 }
 .paper-table table.booktabs {
-  table-layout: fixed;     /* prevents giant cells and evens out column widths */
+  table-layout: auto;     /* allow columns to size to content */
   width: 100%;
   white-space: normal;     /* allow wrapping */
   word-break: break-word;  /* break long words/URLs */
 }
 .paper-table th,
 .paper-table td {
-  padding: .35rem .5rem;
+  padding: .28rem .45rem;
   vertical-align: middle;
 }
 
 /* Ensure the group header underline spans and lines up across tables */
 .paper-table .group-head th {
-  border-bottom: 1px solid var(--subrule);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
 /* Make first column (usually "LLM" or "Approach") a fixed-ish width so its underline lines up */
@@ -229,12 +233,12 @@ nav a {
 .paper-table td:first-child {
   text-align: left;
   width: 18%;
-  min-width: 120px;
+  min-width: 100px;
 }
 
 /* Metrics separator row (e.g., ROT / TTT) */
 .paper-table .metrics-row td {
-  border-bottom: 2px solid var(--rule);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
 /* Small tweak for tight tables */
