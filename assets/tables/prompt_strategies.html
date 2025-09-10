@@ -29,13 +29,10 @@
   }
 
   /* booktabs-inspired rules */
-  .booktabs thead tr:first-child th {
-    border-bottom: 2px solid var(--rule); /* \toprule */
-  }
+  /* remove default top header rule; we'll add a single metrics-row divider below header */
+  .booktabs thead tr:first-child th { border-bottom: 0; }
   .booktabs .midrule > th,
-  .booktabs .midrule > td {
-    border-top: 1px solid var(--rule);    /* \midrule */
-  }
+  .booktabs .midrule > td { border-top: 0; }
   .booktabs tfoot tr:last-child td,
   .booktabs tbody tr:last-child td {
     border-top: 2px solid var(--rule);    /* \bottomrule */
@@ -54,7 +51,7 @@
 
   th, td {
     padding: .35rem .5rem;                 /* \arraystretch tuned */
-    text-align: right;
+    text-align: center; /* center cells; first column remains left */
     vertical-align: middle;
   }
   th[rowspan] { text-align: center; }
@@ -97,7 +94,7 @@
           <th colspan="2">Rots/Ep</th><th>Solve</th>
           <th colspan="2">Rots/Ep</th><th>Solve</th>
         </tr>
-        <tr class="midrule">
+        <tr class="metrics-row">
           <th>Best</th><th>Avg</th><th>Rate</th>
           <th>Best</th><th>Avg</th><th>Rate</th>
           <th>Best</th><th>Avg</th><th>Rate</th>

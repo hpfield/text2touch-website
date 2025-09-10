@@ -28,14 +28,15 @@
     white-space: normal;
     word-break: break-word;
   }
-  .booktabs thead tr:first-child th { border-bottom: 2px solid var(--rule); }
+  /* remove top header rule; we'll use metrics-row to add divider below header */
+  .booktabs thead tr:first-child th { border-bottom: 0; }
   .booktabs .midrule > th,
-  .booktabs .midrule > td { border-top: 1px solid var(--rule); }
+  .booktabs .midrule > td { border-top: 0; }
   .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
 
   th, td {
-    padding: .35rem .5rem;
-    text-align: right;
+    padding: .25rem .4rem; /* slightly smaller cells */
+    text-align: center;    /* center most cells */
     vertical-align: middle;
   }
   th:first-child, td:first-child { text-align: left; }
@@ -60,7 +61,7 @@
           <th colspan="2"><strong>OOD Mass</strong></th>
           <th colspan="2"><strong>OOD Shape</strong></th>
         </tr>
-        <tr class="midrule">
+      <tr class="metrics-row">
           <th>Rots/Ep &#8593;</th><th>EpLen(s) &#8593;</th>
           <th>Rots/Ep &#8593;</th><th>EpLen(s) &#8593;</th>
         </tr>

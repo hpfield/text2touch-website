@@ -36,6 +36,10 @@
   .booktabs thead tr:first-child th{ border-bottom: 2px solid var(--rule); }
   .booktabs .midrule > th,
   .booktabs .midrule > td{ border-top:1px solid var(--rule); }
+    /* remove top header rule; we will use metrics-row to add a divider below the header */
+    .booktabs thead tr:first-child th{ border-bottom: 0; }
+    .booktabs .midrule > th,
+    .booktabs .midrule > td{ border-top:0; }
 
   /* Ensure LLM/Approach column width consistency */
   .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
@@ -48,7 +52,7 @@
 
   th, td {
     padding: .3rem .4rem;
-    text-align: right;
+    text-align: center;
     vertical-align: middle;
   }
   th:first-child, td:first-child { text-align: left; }

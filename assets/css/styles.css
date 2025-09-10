@@ -137,21 +137,27 @@ nav a {
     margin: 0.5rem auto;
 }
 
-/* Video grid */
+/* Video grid: responsive CSS Grid prevents crowding on large screens and collapses to 2x2 on small screens */
 .video-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  align-items: start;
 }
 .video-grid .video-container {
-    flex: 1 1 calc(25% - 0.75rem);
-    max-width: calc(25% - 0.75rem);
+  width: 100%;
+  max-width: 320px; /* limit how wide a single tile can grow on large screens */
+}
+.video-grid .video-container video,
+.video-grid .video-container iframe {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 @media (max-width: 768px) {
-  .video-grid .video-container {
-    flex: 1 1 calc(50% - 0.75rem);
-    max-width: calc(50% - 0.75rem);
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* ensure 2 columns on narrow screens */
   }
 }
 
