@@ -110,65 +110,106 @@ nav a {
 .project-image {
   text-align: center;
   margin: 1.5rem auto;
-  width: 100%;          /* take full available width */
-  /*max-width: 400px;     /* but not wider than 400px */
+  width: 100%;
+  max-width: 800px;
 }
 .project-image img {
   display: block;
-  width: 100%;          /* always fill the container */
+  width: 100%;
   height: auto;
   margin: 0 auto;
 }
 
+/* Project Video */
+.project-video {
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 800px;
+}
+.project-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Video grid */
 .video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* add space between items */
-  justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
 }
 .video-container {
-  flex: 0 0 22%; /* roughly 1/4 minus gap */
-  max-width: 22%;
+    width: 100%;
 }
 .video-container video {
-  width: 100%; /* fill container */
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .video-container {
-    flex: 0 0 22%;
-    max-width: 22%;
-  }
-}
-
-@media (max-width: 768px) {
-  .video-container {
-    flex: 0 0 22%;
-    max-width: 22%;
-  }
-}
-
-/* Center and style included tables */
+/* Tables */
 .table-responsive {
-  display: flex;
-  justify-content: center;
+    overflow-x: auto;
+    margin: 2rem 0;
 }
 .table-responsive table {
-  border-collapse: collapse;
-  margin: 1.5rem 0;  /* vertical spacing only */
-  width: auto;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
 }
 .table-responsive th,
 .table-responsive td {
-  border: none;
-  padding: 1rem 1.5rem;
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 1.4;
 }
-.table-responsive th[rowspan] {
-  vertical-align: middle;
+.table-responsive th {
+    background-color: #f8f8f8;
+}
+.table-responsive th[colspan] {
+    border-bottom: 2px solid #000;
+}
+.table-responsive th[rowspan],
+.table-responsive td[rowspan] {
+    vertical-align: middle;
+}
+
+/* Real-world table specific styling */
+.real-world-table tr.metrics-header {
+    border-bottom: 2px solid #000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .paper-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .table-responsive table {
+        font-size: 12px;
+    }
+    .table-responsive th,
+    .table-responsive td {
+        padding: 0.25rem;
+    }
 }
 
 
