@@ -43,20 +43,23 @@ header p {
 }
 .paper-links {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     margin: 1rem 0;
+    justify-content: center;
 }
 .paper-links a {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    text-align: center;
 }
 .paper-links img {
-    height: 24px;
+    height: 32px;
     width: auto;
+    margin-bottom: 0.5rem;
 }
 nav ul {
     list-style: none;
