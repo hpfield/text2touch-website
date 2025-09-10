@@ -131,24 +131,28 @@ nav a {
 }
 .project-video video {
     width: 100%;
+    max-width: 900px; /* never wider than this on desktops */
     height: auto;
     display: block;
+    margin: 0.5rem auto;
 }
 
 /* Video grid */
 .video-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
 }
-.video-container {
-    width: 100%;
+.video-grid .video-container {
+    flex: 1 1 calc(25% - 0.75rem);
+    max-width: calc(25% - 0.75rem);
 }
-.video-container video {
-    width: 100%;
-    height: auto;
-    display: block;
+@media (max-width: 768px) {
+  .video-grid .video-container {
+    flex: 1 1 calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+  }
 }
 
 /* Tables */
@@ -187,6 +191,49 @@ nav a {
 .real-world-table tr.metrics-header {
     border-bottom: 2px solid #000;
 }
+
+/* Standardize font sizes, cell padding and cell wrapping for the paper tables under assets/tables */
+.paper-table,
+.paper-table table,
+.paper-table th,
+.paper-table td {
+  font-family: Cambria, "Times New Roman", Times, serif;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.paper-table table.booktabs {
+  table-layout: fixed;     /* prevents giant cells and evens out column widths */
+  width: 100%;
+  white-space: normal;     /* allow wrapping */
+  word-break: break-word;  /* break long words/URLs */
+}
+.paper-table th,
+.paper-table td {
+  padding: .35rem .5rem;
+  vertical-align: middle;
+}
+
+/* Ensure the group header underline spans and lines up across tables */
+.paper-table .group-head th {
+  border-bottom: 1px solid var(--subrule);
+}
+
+/* Make first column (usually "LLM" or "Approach") a fixed-ish width so its underline lines up */
+.paper-table th:first-child,
+.paper-table td:first-child {
+  text-align: left;
+  width: 18%;
+  min-width: 120px;
+}
+
+/* Metrics separator row (e.g., ROT / TTT) */
+.paper-table .metrics-row td {
+  border-bottom: 2px solid var(--rule);
+}
+
+/* Small tweak for tight tables */
+.paper-table .tight td,
+.paper-table .tight th { padding-top:.28rem; padding-bottom:.28rem; }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

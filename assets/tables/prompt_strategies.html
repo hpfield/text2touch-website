@@ -22,10 +22,10 @@
     background: #fff;
   }
   table.booktabs {
+    table-layout: fixed;
     width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-    white-space: normal;            /* allow wrapping of table content */
+    white-space: normal;
+    word-break: break-word;
   }
 
   /* booktabs-inspired rules */
@@ -45,6 +45,12 @@
   .booktabs .group-head {
     border-bottom: 1px solid var(--subrule);
   }
+
+  /* Make first column (Approach/LLM) a consistent width so the underline lines up */
+  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+
+  /* Metrics separator if used */
+  .booktabs .metrics-row td { border-bottom: 2px solid var(--rule); }
 
   th, td {
     padding: .35rem .5rem;                 /* \arraystretch tuned */

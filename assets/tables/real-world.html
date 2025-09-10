@@ -5,10 +5,16 @@
     --text:#111;
     --bg:#fff;
   }
-  .paper-table {
+  /* Normalize styling for real-world table and add metrics separator */
+  .paper-table,
+  .paper-table table,
+  .paper-table th,
+  .paper-table td {
     font-family: Cambria, "Times New Roman", Times, serif;
-    font-size: 12px;   /* ≈ \scriptsize */
+    font-size: 12px;
     line-height: 1.35;
+  }
+  .paper-table {
     margin: 1rem auto;
     max-width: 1100px;
   }
@@ -21,16 +27,20 @@
     background: #fff;
   }
   table.booktabs {
+    table-layout: fixed;
     width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
   }
   /* booktabs rules */
-  .booktabs thead tr:first-child th { border-bottom: 2px solid var(--rule); }
+  .booktabs thead tr:first-child th{ border-bottom: 2px solid var(--rule); }
   .booktabs .midrule > th,
-  .booktabs .midrule > td { border-top: 1px solid var(--rule); }
-  .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
+  .booktabs .midrule > td{ border-top:1px solid var(--rule); }
+
+  /* Ensure LLM/Approach column width consistency */
+  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+
+  /* Add clear divider under the ROT/TTT row (apply class="metrics-row" to that <tr> in the HTML if not already) */
   .booktabs .metrics-row td { border-bottom: 2px solid var(--rule); }
 
   /* mimic the vertical rule before Total Avg */
@@ -68,7 +78,7 @@
           <th colspan="2"><strong>Palm Down X</strong></th>
           <th class="vr" colspan="2"><strong>Total Avg</strong></th>
         </tr>
-        <tr class="midrule">
+  <tr class="midrule metrics-row">
           <th>Rot</th><th>TTT</th>
           <th>Rot</th><th>TTT</th>
           <th>Rot</th><th>TTT</th>

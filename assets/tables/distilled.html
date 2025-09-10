@@ -5,26 +5,28 @@
     --text: #111;
     --bg: #fff;
   }
-  .paper-table {
+  .paper-table,
+  .paper-table table,
+  .paper-table th,
+  .paper-table td {
     font-family: Cambria, "Times New Roman", Times, serif;
-    font-size: 12px;   /* ≈ \scriptsize */
+    font-size: 12px;
     line-height: 1.35;
+  }
+  .paper-table {
     margin: 0.75rem auto;
     max-width: 650px;  /* ≈ 0.6\textwidth */
   }
   .table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: .25rem .5rem;
-    background: #fff;
   }
   table.booktabs {
     width: 100%;
     border-collapse: collapse;
-    table-layout: auto;
-    white-space: nowrap;
+    table-layout: fixed;
+    white-space: normal;
+    word-break: break-word;
   }
   .booktabs thead tr:first-child th { border-bottom: 2px solid var(--rule); }
   .booktabs .midrule > th,
@@ -45,6 +47,8 @@
     line-height: 1.35;
     margin-top: .35rem;
   }
+  .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
+  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
 </style>
 
 <div class="paper-table" id="tab-llm-s2">
