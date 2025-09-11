@@ -2,12 +2,13 @@
   :root{
     --rule:#222;         /* booktabs-like dark rules */
     --subrule:#666;      /* cmidrule-ish */
-      /* fullscreen/fit behavior removed: tables are scrollable by default */
+    --text:#111;
+    --bg:#fff;
   }
   body{background:var(--bg);color:var(--text);}
   .paper-table{
     font-family: Cambria, "Times New Roman", Times, serif;
-      
+  }
   .table-wrap{
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
@@ -61,8 +62,8 @@
     font-size: 12px;
     line-height: 1.35;
   }
-  /* Ensure table gets a bottom rule (table bottom) and header gets a single divider */
-  table.booktabs { table-layout: fixed; width:100%; white-space: normal; word-break: break-word; border-bottom: 2px solid var(--rule); }
+  /* Ensure table gets a top and bottom rule and header gets a single divider */
+  table.booktabs { table-layout: fixed; width:100%; white-space: normal; word-break: break-word; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
   .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
   .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
   .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
@@ -77,7 +78,9 @@
 </style>
 </head>
 <body>
-      
+  <div class="paper-table" id="tab-llm-extensive">
+    <div class="table-wrap">
+      <table class="booktabs tight" aria-describedby="llm-extensive-caption">
       <thead>
         <tr>
           <th rowspan="3"><strong>LLM</strong></th>
@@ -85,6 +88,7 @@
           <th class="group-head" colspan="6"><strong>Performance</strong></th>
           <th class="group-head" colspan="6"><strong>Code Quality</strong></th>
         </tr>
+        <tr>
           <th><strong>GR &#8593;</strong></th>
 
           <th colspan="2"><strong>Vars &#8595;</strong></th>
