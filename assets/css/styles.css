@@ -252,6 +252,7 @@ nav a {
   font-size: clamp(11px, 1.1vw, 13px); /* responsive */
   line-height: 1.35;
 }
+.paper-table { text-align: center; }
 .paper-table table.booktabs {
   table-layout: auto;     /* allow columns to size to content */
   width: 100%;
@@ -308,6 +309,18 @@ nav a {
 /* Utility: prevent wrapping when needed */
 .nowrap { white-space: nowrap; }
 
+
+/* Center headers and table cell content */
+.paper-table table.booktabs thead th,
+.table-responsive table thead th {
+  text-align: center;
+}
+
+/* Center the first column cells too (user requested) */
+.paper-table td:first-child,
+.table-responsive td:first-child {
+  text-align: center;
+}
 /* Constrain the first column so it does not force excessive width. Allow wrapping if needed. */
 .paper-table th:first-child,
 .table-responsive th:first-child,
@@ -321,7 +334,11 @@ nav a {
 
 /* Align the inline-table to the left inside its scroll wrapper so it doesn't center */
 .table-wrap, .table-responsive {
-  text-align: left;
+  display: inline-block;    /* shrink-wrap to table width */
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;         /* allow scrolling when content is wider than viewport */
+  text-align: center;       /* center the inline-table inside the wrapper */
 }
 
 /* Improve breaking behavior for all table cells so columns can shrink to the smallest

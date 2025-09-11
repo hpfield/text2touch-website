@@ -39,7 +39,7 @@
   }
 
   /* Make first column (Approach/LLM) a consistent width so the underline lines up */
-  .booktabs th:first-child { width: auto; min-width: 80px; text-align:left; }
+  .booktabs th:first-child { width: auto; min-width: 80px; text-align:center; }
 
   /* Remove all other bold dividing lines between cells */
   .booktabs .metrics-row td { border-bottom: none; }
@@ -55,7 +55,7 @@
     vertical-align: middle;
   }
   th[rowspan] { text-align: center; }
-  th:first-child, td:first-child { text-align: left; }
+  th:first-child, td:first-child { text-align: center; }
 
   /* Emphasis for bold numbers (matches \textbf) */
   .strong { font-weight: 700; }
