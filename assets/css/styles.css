@@ -402,4 +402,28 @@ nav a {
 }
 
 
+/* Mobile: prevent tables from shrinking to fit narrow viewports. Keep their intrinsic width
+   based on content, and make wrappers scroll horizontally. This avoids squishing cells. */
+@media (max-width: 768px) {
+  .paper-table table.booktabs,
+  .table-responsive table {
+    /* ensure the table keeps the width it needs for its content */
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    width: auto !important;
+    display: inline-table; /* shrink-wrap to intrinsic width */
+  }
+
+  /* Wrapper becomes a block-level scroller across full viewport width */
+  .table-wrap, .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    text-align: left; /* keep table left-aligned inside scroller for predictability */
+  }
+}
+
+
 
