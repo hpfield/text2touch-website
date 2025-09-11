@@ -136,9 +136,9 @@ nav a {
 .project-objects {
   text-align: center;
   margin: 1.5rem auto;
-  /* much smaller object set image */
-  width: 45%;
-  max-width: 360px;
+  /* make objects set about 2/3 the width like the splash */
+  width: 66.666%;
+  max-width: 533px; /* ~2/3 of 800px */
 }
 .project-range {
   text-align: center;
