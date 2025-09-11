@@ -126,13 +126,25 @@ nav a {
 }
 
 /* Responsive, centered image blocks for newly added sections */
-.project-splash,
-.project-objects,
+.project-splash {
+  text-align: center;
+  margin: 1.5rem auto;
+  /* make splash about 2/3 the width of the normal project-image (which uses max-width:800px) */
+  width: 66.666%;
+  max-width: 533px; /* ~2/3 of 800px */
+}
+.project-objects {
+  text-align: center;
+  margin: 1.5rem auto;
+  /* much smaller object set image */
+  width: 45%;
+  max-width: 360px;
+}
 .project-range {
   text-align: center;
   margin: 1.5rem auto;
   width: 100%;
-  max-width: 800px; /* match project-image */
+  max-width: 800px; /* keep range image full-width like project-image */
 }
 .project-splash img,
 .project-objects img,
@@ -142,6 +154,16 @@ nav a {
   height: auto;
   margin: 0 auto;
   object-fit: contain; /* avoid cropping and keep aspect ratio */
+}
+
+/* Mobile override: images become full-width on narrow screens */
+@media (max-width: 768px) {
+  .project-splash,
+  .project-objects,
+  .project-range {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Center Overview and Authors */
