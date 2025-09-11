@@ -22,8 +22,8 @@
     background: #fff;
   }
   table.booktabs {
-    table-layout: fixed;
-    width: 100%;
+    table-layout: auto; /* let columns size to content */
+    width: auto;
     white-space: normal;
     word-break: break-word;
   border-top: 2px solid var(--rule);
@@ -39,14 +39,15 @@
   }
 
   /* Make first column (Approach/LLM) a consistent width so the underline lines up */
-  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+  .booktabs th:first-child { width: auto; min-width: 80px; text-align:left; }
 
   /* Remove all other bold dividing lines between cells */
   .booktabs .metrics-row td { border-bottom: none; }
 
   /* Table wrapper & responsive behaviour (scrollable by default) */
   .table-wrap{ position: relative; }
-  table.booktabs{ min-width: 900px; }
+  /* allow tables to shrink to their content width but remain scrollable via wrapper */
+  table.booktabs{ min-width: 0; }
 
   th, td {
     padding: .35rem .5rem;                 /* \arraystretch tuned */

@@ -18,10 +18,11 @@
     background:#fff;
   }
   table.booktabs {
-    table-layout: fixed;
-    width:100%;
+    table-layout: auto; /* let columns size to content */
+    width: auto; /* avoid forcing full-width distribution */
     white-space: normal;
     word-break: break-word;
+    max-width: 100%;
   }
   /* Only one bold dividing line below header and one at the bottom */
   .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
@@ -63,17 +64,18 @@
     line-height: 1.35;
   }
   /* Ensure table gets a top and bottom rule and header gets a single divider */
-  table.booktabs { table-layout: fixed; width:100%; white-space: normal; word-break: break-word; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+  table.booktabs { table-layout: auto; width: auto; white-space: normal; word-break: break-word; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); max-width:100%; }
   .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
   .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
-  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+  .booktabs th:first-child { width: auto; min-width: 80px; text-align:left; }
   /* Remove all other bold dividing lines between cells */
   .booktabs .metrics-row td { border-bottom: none; }
 
   /* Table wrapper & responsive controls */
   .table-wrap{ position: relative; }
   /* toolbar removed: tables are scrollable by default */
-  table.booktabs{ min-width: 900px; }
+  /* allow tables to shrink to their content width but remain scrollable via wrapper */
+  table.booktabs{ min-width: 0; }
   /* fullscreen/fit removed: tables are scrollable by default */
 </style>
 </head>

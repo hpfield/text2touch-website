@@ -22,13 +22,14 @@
     -webkit-overflow-scrolling: touch;
   }
   table.booktabs {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout: auto; /* let columns size to content */
     white-space: normal;
     word-break: break-word;
   border-top: 2px solid var(--rule);
   border-bottom: 2px solid var(--rule); /* top and bottom of table */
+  max-width:100%;
   }
   /* Only one bold dividing line below header */
   .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
@@ -48,13 +49,14 @@
     margin-top: .35rem;
   }
   .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
-  .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+  .booktabs th:first-child { width: auto; min-width: 80px; text-align:left; }
   /* Remove all other bold dividing lines between cells */
   .booktabs .metrics-row td { border-bottom: none; }
 
   /* Table wrapper & responsive behaviour (scrollable by default) */
   .table-wrap{ position: relative; }
-  table.booktabs{ min-width: 700px; }
+  /* allow tables to shrink to their content width but remain scrollable via wrapper */
+  table.booktabs{ min-width: 0; }
 </style>
 
 <div class="paper-table" id="tab-llm-s2">
