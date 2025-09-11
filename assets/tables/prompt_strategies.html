@@ -62,11 +62,15 @@
 
   caption {
     caption-side: bottom;                  /* like \caption below table */
+    display: block;
+    width: 100%;
     text-align: left;
     font-size: 12px;
     line-height: 1.35;
     margin-top: .35rem;
   }
+  /* Ensure header divider spans across columns including those with rowspan */
+  .booktabs thead { border-bottom: 2px solid var(--rule); }
 
   /* Optional small spacing tweaks to mimic LaTeX tightness */
   .tight td, .tight th { padding-top: .28rem; padding-bottom: .28rem; }

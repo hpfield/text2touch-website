@@ -43,11 +43,14 @@
   .strong { font-weight: 700; }
   caption {
     caption-side: bottom;
+    display: block;
+    width: 100%;
     text-align: left;
     font-size: 12px;
     line-height: 1.35;
     margin-top: .35rem;
   }
+  .booktabs thead { border-bottom: 2px solid var(--rule); }
   .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
     .booktabs th:first-child { width: auto; min-width: 80px; text-align:center; }
   /* Remove all other bold dividing lines between cells */

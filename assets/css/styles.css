@@ -423,6 +423,13 @@ nav a {
     -webkit-overflow-scrolling: touch;
     text-align: left; /* keep table left-aligned inside scroller for predictability */
   }
+  /* Prefer no wrapping inside table cells on mobile so values keep their space; scroller prevents overflow issues */
+  .paper-table td,
+  .paper-table th,
+  .table-responsive td,
+  .table-responsive th {
+    white-space: nowrap;
+  }
 }
 
 
