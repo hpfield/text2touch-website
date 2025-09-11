@@ -273,8 +273,8 @@ nav a {
 .paper-table th:first-child,
 .paper-table td:first-child {
   text-align: left;
-  width: 18%;
-  min-width: 100px;
+  width: auto;
+  min-width: 70px;
 }
 
 /* Metrics separator row (e.g., ROT / TTT) - remove heavy divider between bottom rows */
@@ -285,6 +285,55 @@ nav a {
 /* Small tweak for tight tables */
 .paper-table .tight td,
 .paper-table .tight th { padding-top:.28rem; padding-bottom:.28rem; }
+
+/* Strong global override: let paper/booktabs tables size to their content
+   and avoid large fixed widths that force columns to expand. Use wrappers
+   for scroll when necessary. */
+.paper-table table.booktabs,
+.table-responsive table {
+  table-layout: auto !important; /* size columns to content */
+  width: auto !important;        /* avoid forcing full-width distribution */
+  max-width: 100%;
+  min-width: 0 !important;      /* prevent large minimum widths from stretching table */
+  display: inline-table;        /* shrink-wrap table to its content width */
+}
+
+/* By default allow header text to wrap so columns can shrink; for headings that must not wrap
+   use the .nowrap utility class on the <th> element. */
+.paper-table th,
+.table-responsive th {
+  white-space: normal;
+}
+
+/* Utility: prevent wrapping when needed */
+.nowrap { white-space: nowrap; }
+
+/* Constrain the first column so it does not force excessive width. Allow wrapping if needed. */
+.paper-table th:first-child,
+.table-responsive th:first-child,
+.paper-table td:first-child,
+.table-responsive td:first-child {
+  width: auto !important;
+  min-width: 40px !important;
+  max-width: 180px; /* prevent the first column from growing unbounded */
+  overflow-wrap: anywhere; /* allow breaking long labels if needed */
+}
+
+/* Align the inline-table to the left inside its scroll wrapper so it doesn't center */
+.table-wrap, .table-responsive {
+  text-align: left;
+}
+
+/* Improve breaking behavior for all table cells so columns can shrink to the smallest
+   practical width based on content. This helps with distilled table and numeric columns. */
+.paper-table th,
+.paper-table td,
+.table-responsive th,
+.table-responsive td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
