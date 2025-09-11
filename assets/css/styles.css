@@ -125,6 +125,25 @@ nav a {
   margin: 0 auto;
 }
 
+/* Responsive, centered image blocks for newly added sections */
+.project-splash,
+.project-objects,
+.project-range {
+  text-align: center;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 800px; /* match project-image */
+}
+.project-splash img,
+.project-objects img,
+.project-range img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain; /* avoid cropping and keep aspect ratio */
+}
+
 /* Center Overview and Authors */
 #overview, #overview h2, #overview p {
   text-align: center;
