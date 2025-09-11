@@ -32,20 +32,15 @@
     white-space: normal;
     word-break: break-word;
   }
-  /* booktabs rules */
-  .booktabs thead tr:first-child th{ border-bottom: 2px solid var(--rule); }
-  .booktabs .midrule > th,
-  .booktabs .midrule > td{ border-top:1px solid var(--rule); }
-    /* remove top header rule; we will use metrics-row to add a divider below the header */
-    .booktabs thead tr:first-child th{ border-bottom: 0; }
-    .booktabs .midrule > th,
-    .booktabs .midrule > td{ border-top:0; }
+  /* Only one bold dividing line below header and one at the bottom */
+  .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
+  .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
 
   /* Ensure LLM/Approach column width consistency */
   .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
 
-  /* Add clear divider under the ROT/TTT row (apply class="metrics-row" to that <tr> in the HTML if not already) */
-  .booktabs .metrics-row td { border-bottom: 2px solid var(--rule); }
+  /* Remove all other bold dividing lines between cells */
+  .booktabs .metrics-row td { border-bottom: none; }
 
   /* mimic the vertical rule before Total Avg */
   .vr { border-left: 1px solid var(--subrule); }

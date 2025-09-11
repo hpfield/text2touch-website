@@ -28,10 +28,8 @@
     white-space: normal;
     word-break: break-word;
   }
-  /* remove top header rule; we'll use metrics-row to add divider below header */
-  .booktabs thead tr:first-child th { border-bottom: 0; }
-  .booktabs .midrule > th,
-  .booktabs .midrule > td { border-top: 0; }
+  /* Only one bold dividing line below header and one at the bottom */
+  .booktabs thead tr:last-child th { border-bottom: 2px solid var(--rule); }
   .booktabs tbody tr:last-child td { border-top: 2px solid var(--rule); }
 
   th, td {
@@ -50,6 +48,8 @@
   }
   .booktabs .group-head { border-bottom: 1px solid var(--subrule); }
   .booktabs th:first-child { width: 18%; min-width: 120px; text-align:left; }
+  /* Remove all other bold dividing lines between cells */
+  .booktabs .metrics-row td { border-bottom: none; }
 </style>
 
 <div class="paper-table" id="tab-llm-s2">
