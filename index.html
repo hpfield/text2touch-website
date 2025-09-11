@@ -25,6 +25,14 @@ title: Home
 <section id="overview" class="container">
   <h2>Overview</h2>
   <p><strong>Authors:</strong> Harrison Field, Max Yang, Yijiong Lin, Efi Psomopoulou, David Barton, Nathan F. Lepora</p>
+  <!-- splash image placed immediately after authors -->
+  <div class="project-splash">
+    <img src="{{ site.baseurl }}/assets/images/splash.png" alt="Text2Touch splash image">
+  </div>
+
+  <!-- abstract moved to sit directly below the splash image -->
+  <p><strong>Abstract:</strong> Large language models (LLMs) are begining to automate reward design for dexterous manipulation. However, no prior work has considered tactile sensing, which is known to be critical for human-like dexterity. We present Text2Touch, bringing LLM-crafted rewards to the challenging task of multi-axis in-hand object rotation with real-world vision based tactile sensing in palm-up and palm-down configurations. Our prompt engineering strategy scales to over 70 environment variables, and sim-to-real distillation enables successful policy transfer to a tactile-enabled fully actuated four-fingered dexterous robot hand. Text2Touch significantly outperforms a carefully tuned human-engineered baseline, demonstrating superior rotation speed and stability while relying on reward functions that are an order of magnitude shorter and simpler. These results illustrate how LLM-designed rewards can significantly reduce the time from concept to deployable dexterous tactile skills, supporting more rapid and scalable multimodal robot learning.</p>
+
   <div class="project-video">
     <h3>Project Video</h3>
     <video id="video-project" controls>
@@ -36,8 +44,6 @@ title: Home
   <div class="project-image">
     <img src="{{ site.baseurl }}/assets/images/text2touchv3.png" alt="Text2Touch V3 overview">
   </div>
-
-  <p><strong>Abstract:</strong> Large language models (LLMs) are begining to automate reward design for dexterous manipulation. However, no prior work has considered tactile sensing, which is known to be critical for human-like dexterity. We present Text2Touch, bringing LLM-crafted rewards to the challenging task of multi-axis in-hand object rotation with real-world vision based tactile sensing in palm-up and palm-down configurations. Our prompt engineering strategy scales to over 70 environment variables, and sim-to-real distillation enables successful policy transfer to a tactile-enabled fully actuated four-fingered dexterous robot hand. Text2Touch significantly outperforms a carefully tuned human-engineered baseline, demonstrating superior rotation speed and stability while relying on reward functions that are an order of magnitude shorter and simpler. These results illustrate how LLM-designed rewards can significantly reduce the time from concept to deployable dexterous tactile skills, supporting more rapid and scalable multimodal robot learning.</p>
 </section>
 
 <section id="reward-functions" class="container">
@@ -131,6 +137,15 @@ title: Home
     </div>
     <script src="assets/js/main.js"></script>
   </div>
+  </section>
+
+  <!-- objects set image placed just below the real-world deployment videos -->
+  <section class="container objects-set">
+    <h3>Simulation / Real World Object Set</h3>
+    <div class="project-objects">
+      <img src="{{ site.baseurl }}/assets/images/my_objects_set.jpg" alt="Simulation and real-world object set">
+    </div>
+  </section>
 </section>
 
 <section id="results" class="container">
@@ -157,4 +172,11 @@ title: Home
   <div class="table-responsive">
     {% include_relative assets/tables/real-world.html %}
   </div>
+
+  <!-- range image placed below the tables -->
+  <section class="container range-image">
+    <div class="project-range">
+      <img src="{{ site.baseurl }}/assets/images/range.jpg" alt="Range image">
+    </div>
+  </section>
 </section>
