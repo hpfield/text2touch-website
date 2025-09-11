@@ -6,18 +6,7 @@ title: Home
 <script>
   window.BASEURL = "{{ site.baseurl }}";
 </script>
-<style>
-  /* center table titles and add top margin */
-  .container h3 {
-    text-align: center;
-    margin-top: 40px;
-  }
-  /* code‐block height */
-  #rewardFunctionDisplay pre {
-    height: 500px;      /* desired height */
-    overflow-y: auto;   /* enable scrolling when content exceeds */
-  }
-  @media (max-width: 768px) {
+
     #rewardFunctionDisplay pre { height: 320px; }
   }
 </style>
@@ -38,10 +27,28 @@ title: Home
     <video id="video-project" controls>
       <source src="{{ site.baseurl }}/assets/videos/Text2Touch.mp4" type="video/mp4">
       Your browser does not support the video tag.
-    </div>
+    </video>
+  </div>
+
+</section>
+
+<section id="reward-functions" class="container">
+  <h2>Reward Functions</h2>
+  <p>Select an approach to view its best reward function code:</p>
+  <select id="llmSelector">
+    <option value="baseline">Baseline</option>
+    <option value="gpt4o">GPT-4o</option>
+    <option value="gemini1.5flash">Gemini-1.5-Flash</option>
+    <option value="deepseekr1-671b">Deepseek-R1-671B</option>
+    <option value="llama-3.1-405B">Llama 3.1‑405B</option>
+    <option value="o3-mini">O3‑Mini</option>
+  </select>
+  <div id="rewardFunctionDisplay">
+    <pre><code class="language-python" id="codeBlock">
+// Placeholder reward function code will appear here.
+    </code></pre>
   </div>
 </section>
-    <option value="baseline">Baseline</option>
     <option value="gpt4o">GPT-4o</option>
     <option value="gemini1.5flash">Gemini-1.5-Flash</option>
     <option value="deepseekr1-671b">Deepseek-R1-671B</option>
@@ -128,16 +135,6 @@ title: Home
     </div>
     <script src="assets/js/main.js"></script>
   </div>
-  </section>
-
-  <!-- objects set image placed just below the real-world deployment videos -->
-  <section class="container objects-set">
-    <h3>Simulation / Real World Object Set</h3>
-    <div class="project-objects">
-      <img src="{{ site.baseurl }}/assets/images/my_objects_set.jpg" alt="Simulation and real-world object set">
-    </div>
-  </section>
-</section>
 
 <section id="results" class="container">
   <h2>Key Tables & Results</h2>
