@@ -51,21 +51,13 @@
   /* Remove all other bold dividing lines between cells */
   .booktabs .metrics-row td { border-bottom: none; }
 
-  /* Table wrapper & responsive controls */
+  /* Table wrapper & responsive behaviour (scrollable by default) */
   .table-wrap{ position: relative; }
-  .table-wrap .table-toolbar{ position: absolute; top: .35rem; right: .5rem; display:flex; gap:.4rem; z-index:5; }
-  .table-wrap .table-toolbar button{ background:#fff; border:1px solid rgba(0,0,0,.12); padding:.28rem .5rem; border-radius:4px; cursor:pointer; font-size:.9rem; }
   table.booktabs{ min-width: 700px; }
-  .table-wrap.fullscreen{ position: fixed; inset:0; width:100vw; height:100vh; margin:0; padding:1.25rem; background:#fff; z-index:9999; overflow:auto; border-radius:0; }
-  .table-wrap.fullscreen table.booktabs, .table-wrap.fit table.booktabs{ min-width:0; width:100%; table-layout:auto; }
 </style>
 
 <div class="paper-table" id="tab-llm-s2">
   <div class="table-wrap">
-    <div class="table-toolbar" role="toolbar" aria-label="Table display controls">
-      <button type="button" class="btn-fullscreen" aria-expanded="false">Fullscreen</button>
-      <button type="button" class="btn-fit">Fit to Width</button>
-    </div>
     <table class="booktabs" aria-describedby="llm-s2-caption">
       <thead>
         <tr>
@@ -118,47 +110,4 @@
   </caption>
 </div>
 
-<script>
-  (function(){
-    const wrapper = document.getElementById('tab-llm-s2')?.querySelector('.table-wrap');
-    if(!wrapper) return;
-    const btnFs = wrapper.querySelector('.btn-fullscreen');
-    const btnFit = wrapper.querySelector('.btn-fit');
-
-    btnFs && btnFs.addEventListener('click', async function(){
-      try {
-        if (!document.fullscreenElement) {
-          if (wrapper.requestFullscreen) {
-            await wrapper.requestFullscreen();
-          } else {
-            wrapper.classList.add('fullscreen');
-          }
-          btnFs.textContent = 'Exit Fullscreen';
-          btnFs.setAttribute('aria-expanded','true');
-        } else {
-          if (document.exitFullscreen) await document.exitFullscreen();
-          wrapper.classList.remove('fullscreen');
-          btnFs.textContent = 'Fullscreen';
-          btnFs.setAttribute('aria-expanded','false');
-        }
-      } catch (err) {
-        wrapper.classList.toggle('fullscreen');
-        const expanded = wrapper.classList.contains('fullscreen');
-        btnFs.textContent = expanded ? 'Exit Fullscreen' : 'Fullscreen';
-        btnFs.setAttribute('aria-expanded', String(expanded));
-      }
-    });
-
-    btnFit && btnFit.addEventListener('click', function(){
-      wrapper.classList.toggle('fit');
-      btnFit.textContent = wrapper.classList.contains('fit') ? 'Scroll View' : 'Fit to Width';
-    });
-
-    document.addEventListener('fullscreenchange', function(){
-      if(!document.fullscreenElement){
-        wrapper.classList.remove('fullscreen');
-        if (btnFs) { btnFs.textContent = 'Fullscreen'; btnFs.setAttribute('aria-expanded','false'); }
-      }
-    });
-  })();
-</script>
+<!-- toolbar removed: scrollable by default -->

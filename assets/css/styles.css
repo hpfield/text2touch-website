@@ -236,9 +236,9 @@ nav a {
   min-width: 100px;
 }
 
-/* Metrics separator row (e.g., ROT / TTT) */
+/* Metrics separator row (e.g., ROT / TTT) - remove heavy divider between bottom rows */
 .paper-table .metrics-row td {
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: none;
 }
 
 /* Small tweak for tight tables */
@@ -269,6 +269,28 @@ nav a {
     .table-responsive th,
     .table-responsive td {
         padding: 0.25rem;
+    }
+
+    /* Make selectors stack vertically and occupy full width on mobile for neatness */
+    .dropdowns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      align-items: stretch;
+    }
+    .dropdowns label, .dropdowns select {
+      width: 100%;
+      margin: 0.25rem 0;
+    }
+
+    /* Make reward code box shorter on mobile for easier scrolling */
+    #rewardFunctionDisplay pre {
+      height: 320px;
+    }
+
+    /* Enlarge the paper link icons roughly 2x on mobile and desktop */
+    .paper-links img {
+      height: 80px;
     }
 }
 
