@@ -100,10 +100,10 @@ nav a {
   
   /* Reward function code box fixed height and scrollable */
   #rewardFunctionDisplay pre {
-  height: 500px;
-  overflow-y: auto;
-  font-size: clamp(0.78rem, 1.9vw, 1rem); /* scale code font with viewport */
-  line-height: 1.4;
+    height: 500px;
+    overflow-y: auto;
+    font-size: clamp(0.65rem, 1.3vw, 0.85rem); /* smaller code font */
+    line-height: 1.35;
   }
   
   /* Dropdowns and controls */
@@ -346,6 +346,16 @@ nav a {
   max-width: 100%;
   overflow-x: auto;         /* allow scrolling when content is wider than viewport */
   text-align: center;       /* center the inline-table inside the wrapper */
+}
+
+/* Captions: ensure they start on a fresh line below inline-table wrappers */
+.paper-table caption,
+.table-responsive caption {
+  display: block;      /* already block in many cases, reinforce */
+  width: 100%;
+  float: none;
+  clear: both;         /* force new line below preceding inline elements */
+  margin-top: .4rem;
 }
 
 /* Improve breaking behavior for all table cells so columns can shrink to the smallest
