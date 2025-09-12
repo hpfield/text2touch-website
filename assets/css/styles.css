@@ -256,8 +256,8 @@ nav a {
 .paper-table table.booktabs {
   table-layout: auto;     /* allow columns to size to content */
   width: 100%;
-  white-space: normal;     /* allow wrapping */
-  word-break: break-word;  /* break long words/URLs */
+  white-space: nowrap;    /* prevent wrapping so intrinsic widths are preserved */
+  word-break: normal;     /* avoid forced breaks; horizontal scroll will handle overflow */
 }
 .paper-table th,
 .paper-table td {
@@ -301,10 +301,17 @@ nav a {
 
 /* By default allow header text to wrap so columns can shrink; for headings that must not wrap
    use the .nowrap utility class on the <th> element. */
+/* Prevent wrapping in all table header/data cells by default so column widths shrink to content
+   and the table can overflow horizontally inside its scroll wrapper instead of wrapping text. */
 .paper-table th,
-.table-responsive th {
-  white-space: normal;
+.paper-table td,
+.table-responsive th,
+.table-responsive td {
+  white-space: nowrap;
 }
+
+/* Utility to re-enable wrapping for specific cells/headers if needed (e.g., long descriptive labels). */
+.wrap { white-space: normal !important; }
 
 /* Utility: prevent wrapping when needed */
 .nowrap { white-space: nowrap; }
