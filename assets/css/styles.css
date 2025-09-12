@@ -14,6 +14,9 @@ body {
     color: #333;
     background-color: #fff;
 }
+
+/* Center all main headers site-wide */
+h1, h2, h3 { text-align: center; }
   
 /* Container */
 .container {
@@ -347,6 +350,7 @@ nav a {
   max-width: 100%;
   overflow-x: auto;         /* allow scrolling when content is wider than viewport */
   text-align: center;       /* center the inline-table inside the wrapper */
+  margin: 0.75rem auto;     /* center wrapper horizontally */
 }
 
 /* Captions: ensure they start on a fresh line below inline-table wrappers */
@@ -358,6 +362,12 @@ nav a {
   clear: both;         /* force new line below preceding inline elements */
   margin-top: .4rem;
 }
+
+/* Center section headers for results tables */
+#results h3 { text-align: center; }
+
+/* Ensure outer .paper-table container centers its contents */
+.paper-table { margin-left: auto; margin-right: auto; }
 
 /* Improve breaking behavior for all table cells so columns can shrink to the smallest
    practical width based on content. This helps with distilled table and numeric columns. */
