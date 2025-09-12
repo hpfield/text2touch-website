@@ -343,15 +343,26 @@ nav a {
 }
 
 /* Align the inline-table to the left inside its scroll wrapper so it doesn't center */
-.table-wrap, .table-responsive {
-  display: block;           /* block so following caption naturally starts on new line */
+/* Center booktabs tables that shrink-wrap to content */
+.table-wrap {
+  display: block;
   width: -moz-fit-content;
-  width: fit-content;       /* shrink-wrap to intrinsic table width */
+  width: fit-content;
   max-width: 100%;
-  overflow-x: auto;         /* allow scrolling when content is wider than viewport */
-  text-align: center;       /* center the inline-table inside the wrapper */
-  margin: 0.75rem auto;     /* center wrapper horizontally */
+  overflow-x: auto;
+  text-align: center;
+  margin: 0.75rem auto;
 }
+
+/* Center full-width responsive tables */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  text-align: center; /* centers the inline-table inside if any */
+  margin: 0.75rem auto;
+}
+#results h3, .results-heading { text-align: center !important; }
 
 /* Captions: ensure they start on a fresh line below inline-table wrappers */
 .paper-table caption,
