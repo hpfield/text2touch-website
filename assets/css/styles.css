@@ -341,8 +341,9 @@ nav a {
 
 /* Align the inline-table to the left inside its scroll wrapper so it doesn't center */
 .table-wrap, .table-responsive {
-  display: inline-block;    /* shrink-wrap to table width */
-  width: auto;
+  display: block;           /* block so following caption naturally starts on new line */
+  width: -moz-fit-content;
+  width: fit-content;       /* shrink-wrap to intrinsic table width */
   max-width: 100%;
   overflow-x: auto;         /* allow scrolling when content is wider than viewport */
   text-align: center;       /* center the inline-table inside the wrapper */
