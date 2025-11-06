@@ -1,7 +1,0 @@
-
-jekyll serve --livereload
-
-# Then go to:
-http://127.0.0.1:4000/
-
-And it will refresh upon file changes in the repo
