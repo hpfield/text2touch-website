@@ -87,10 +87,10 @@ nav a {
     color: #333;
   }
 
-/* Left-align only the bibtex block content in the footer (keep header/title centered) */
-.bibtex pre {
-  text-align: left;
-}
+  /* Left-align only the bibtex block content in the footer (keep header/title centered) */
+  .bibtex pre {
+    text-align: left;
+  }
   
   /* Section styling */
   section {
